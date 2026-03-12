@@ -1,10 +1,12 @@
 node_modules
 npm-debug.log*
 .DS_Store
+._*
 .env
 .env.*
 !.env.example
 .husky/_
+release/
 apps/web/.next
 apps/web/coverage
 apps/web/playwright-report

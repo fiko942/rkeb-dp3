@@ -54,7 +54,23 @@ npm run db:seed
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Open `http://localhost:34546`.
+
+## Production Build (ZIP + main.js)
+```bash
+npm run build:production
+```
+
+Output:
+- `release/rkeb-dp3-production.zip`
+- `release/rkeb-dp3-production/main.js`
+
+Jalankan di server hanya dengan:
+```bash
+node main.js
+```
+
+Default port runtime: `34546`.
 
 ## Testing
 ```bash
