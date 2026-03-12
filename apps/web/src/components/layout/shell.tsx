@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { FileText, Home, UserRound } from 'lucide-react';
+import { FloatingGithubButton } from '@/components/layout/floating-github-button';
 
 const NAV = [
   { href: '/', label: 'Dashboard', icon: Home },
@@ -32,6 +33,7 @@ export function Shell({ children }: { children: ReactNode }) {
         </div>
       </header>
       <main className="mx-auto w-full max-w-7xl p-4 md:p-6">{children}</main>
+      <FloatingGithubButton />
     </div>
   );
 }

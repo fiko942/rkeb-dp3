@@ -13,3 +13,22 @@ body {
 a {
   @apply text-excel-dark;
 }
+
+@keyframes github-float {
+  0% {
+    transform: translateY(0px);
+    box-shadow: 0 10px 22px rgba(16, 124, 65, 0.18);
+  }
+  50% {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 30px rgba(16, 124, 65, 0.26);
+  }
+  100% {
+    transform: translateY(0px);
+    box-shadow: 0 10px 22px rgba(16, 124, 65, 0.18);
+  }
+}
+
+.github-float {
+  animation: github-float 2.8s ease-in-out infinite;
+}
