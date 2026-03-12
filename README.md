@@ -70,7 +70,7 @@ npm run perf:api --workspace web
 | Fungsional | Manual verification pada queue result | UI action + API patch | `isManuallyVerified` berubah `true` | PASS |
 | Akurasi | Formula scoring sesuai bobot DP2 | Unit test `scoring.test.ts` | Nilai sample `0.86` tervalidasi | PASS |
 | Akurasi | Threshold klasifikasi score (`>=0.8`, `0.6-0.79`, `<0.6`) | Unit test | Mapping label konsisten | PASS |
-| Kinerja | Latensi endpoint hasil tracking (`GET /api/tracking/results`) | `autocannon` 10 detik | Isi metrik dengan hasil run lokal/VPS | TODO |
+| Kinerja | Latensi endpoint hasil tracking (`GET /api/tracking/results`) | `autocannon` 10 detik | Rata-rata latensi **22.45 ms** (p99 **48 ms**), throughput rata-rata **435 req/s** pada 10 koneksi (10 detik, lokal) | PASS |
 | Kinerja | Stabilitas render halaman dashboard | E2E smoke test | Halaman utama dan navigasi termuat | PASS |
 
 ## Theme Direction
