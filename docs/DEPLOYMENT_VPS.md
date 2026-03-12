@@ -15,10 +15,13 @@ npm install
 cp apps/web/.env.example apps/web/.env
 npm run db:push
 npm run db:seed
-npm run build
-pm2 start npm --name rkeb-dp3 -- run start --workspace web
+npm run build:production
+cd release/rkeb-dp3-production
+pm2 start main.js --name rkeb-dp3
 pm2 save
 ```
+
+Default app port: `34546`.
 
 ## Nginx Reverse Proxy
 ```nginx
