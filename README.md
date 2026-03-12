@@ -64,9 +64,11 @@ npm run build:production
 Output:
 - `release/rkeb-dp3-production.zip`
 - `release/rkeb-dp3-production/main.js`
+- `release/rkeb-dp3-production/package.json`
 
 Jalankan di server hanya dengan:
 ```bash
+npm install --omit=dev
 node main.js
 ```
 

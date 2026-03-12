@@ -17,6 +17,7 @@ npm run db:push
 npm run db:seed
 npm run build:production
 cd release/rkeb-dp3-production
+npm install --omit=dev
 pm2 start main.js --name rkeb-dp3
 pm2 save
 ```
