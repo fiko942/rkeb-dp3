@@ -1,6 +1,11 @@
-# RKEB Daily Project 3 - Alumni Tracking Web
+# Daily Project 3 - Sistem Pelacakan Alumni
 
 Implementasi web dari desain Daily Project 2 menggunakan Next.js, Tailwind, Radix UI, shadcn/ui style components, Prisma, dan SQLite.
+
+## Identitas Mahasiswa
+- Nama: **WIJI FIKO TEREN**
+- NIM: **202310370311437**
+- Kelas: **REKAYASA KEBUTUHAN A**
 
 ## Submission Links
 - Source Code (GitHub): `https://github.com/fiko942/rkeb-dp3.git`

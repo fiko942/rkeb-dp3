@@ -6,8 +6,8 @@ import { Shell } from '@/components/layout/shell';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'RKEB DP3 Alumni Tracker',
-  description: 'Web implementation for Daily Project 3 - alumni tracking pipeline'
+  title: 'WIJI FIKO TEREN - Daily Project 3',
+  description: 'Rekayasa Kebutuhan A - Sistem Pelacakan Alumni'
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

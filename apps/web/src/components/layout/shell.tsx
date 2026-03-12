@@ -14,8 +14,8 @@ export function Shell({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-20 border-b border-emerald-100 bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4">
           <div>
-            <p className="text-sm font-semibold text-excel-dark">RKEB DP3</p>
-            <p className="text-xs text-slate-500">Alumni Public Tracking System</p>
+            <p className="text-sm font-semibold text-excel-dark">WIJI FIKO TEREN - 202310370311437</p>
+            <p className="text-xs text-slate-500">Rekayasa Kebutuhan A - Sistem Pelacakan Alumni</p>
           </div>
           <nav className="flex items-center gap-2">
             {NAV.map(({ href, label, icon: Icon }) => (

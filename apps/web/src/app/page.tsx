@@ -23,9 +23,9 @@ export default async function DashboardPage() {
     <div className="space-y-6">
       <section className="flex flex-col justify-between gap-4 rounded-2xl border border-emerald-200 bg-white p-5 md:flex-row md:items-center">
         <div>
-          <p className="text-sm uppercase tracking-wide text-excel-soft">Daily Project 3</p>
+          <p className="text-sm uppercase tracking-wide text-excel-soft">Rekayasa Kebutuhan A</p>
           <h1 className="text-2xl font-semibold text-excel-dark">Alumni Tracking Operations Dashboard</h1>
-          <p className="mt-1 text-sm text-slate-600">Pipeline simulasi tracking alumni berbasis evidence dan disambiguation score.</p>
+          <p className="mt-1 text-sm text-slate-600">WIJI FIKO TEREN (202310370311437) - Pipeline simulasi tracking alumni berbasis evidence dan disambiguation score.</p>
         </div>
         <RunTrackingButton />
       </section>
