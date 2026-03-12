@@ -1,0 +1,52 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+
+actor "Admin" as Admin
+actor "Scheduler" as Scheduler
+actor "Verifikator Manual" as Verifikator
+actor "Sumber Publik/API" as PublicSource
+
+rectangle "Sistem Pelacakan Alumni" {
+  usecase "Kelola Data Alumni Master" as UC1
+  usecase "Buat Profil Target Pencarian" as UC2
+  usecase "Atur Prioritas Sumber" as UC3
+  usecase "Jalankan Job Pelacakan Berkala" as UC4
+  usecase "Generate Query Pencarian" as UC5
+  usecase "Ambil Kandidat dari Sumber Publik" as UC6
+  usecase "Ekstrak Sinyal Identitas" as UC7
+  usecase "Hitung Skor Disambiguasi" as UC8
+  usecase "Cross-Validation Antar Sumber" as UC9
+  usecase "Tetapkan Status Pelacakan Alumni" as UC10
+  usecase "Simpan Jejak Bukti dan Riwayat" as UC11
+  usecase "Verifikasi Manual Kandidat" as UC12
+  usecase "Lihat Laporan Pelacakan" as UC13
+}
+
+Admin --> UC1
+Admin --> UC2
+Admin --> UC3
+Admin --> UC13
+
+Scheduler --> UC4
+UC4 --> UC5
+UC5 --> UC6
+UC6 --> UC7
+UC7 --> UC8
+UC8 --> UC9
+UC9 --> UC10
+UC10 --> UC11
+
+PublicSource --> UC6
+
+Verifikator --> UC12
+UC12 --> UC10
+
+UC2 ..> UC5 : <<include>>
+UC6 ..> UC7 : <<include>>
+UC8 ..> UC9 : <<include>>
+UC10 ..> UC11 : <<include>>
+UC13 ..> UC11 : <<include>>
+
+@enduml

@@ -1,0 +1,38 @@
+{
+  "name": "rkeb-dp3",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace web",
+    "build": "npm run build --workspace web",
+    "start": "npm run start --workspace web",
+    "lint": "npm run lint --workspace web",
+    "test": "npm run test --workspace web",
+    "test:unit": "npm run test:unit --workspace web",
+    "test:integration": "npm run test:integration --workspace web",
+    "test:e2e": "npm run test:e2e --workspace web",
+    "db:push": "npm run db:init --workspace web",
+    "db:generate": "npm run db:generate --workspace web",
+    "db:seed": "npm run db:seed --workspace web",
+    "db:reset": "npm run db:reset --workspace web",
+    "backupdb:scheme": "python3 scripts/backupdb_scheme.py",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs,json,md,css}": [
+      "prettier --write"
+    ],
+    "apps/web/src/**/*.{js,jsx,ts,tsx}": [
+      "npm run lint --workspace web -- --fix"
+    ]
+  }
+}

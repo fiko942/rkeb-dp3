@@ -1,0 +1,15 @@
+node_modules
+npm-debug.log*
+.DS_Store
+.env
+.env.*
+!.env.example
+.husky/_
+apps/web/.next
+apps/web/coverage
+apps/web/playwright-report
+apps/web/test-results
+apps/web/prisma/dev.db
+apps/web/prisma/dev.db-journal
+apps/web/prisma/test.db
+apps/web/prisma/test.db-journal

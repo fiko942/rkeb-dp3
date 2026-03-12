@@ -1,0 +1,155 @@
+SnapshotVersion: 2
+LastMergedAt: "2026-03-12T04:59:35Z"
+MergeType: structural
+MergePolicy:
+  mode: non_destructive
+  overwrite_forbidden: true
+  delete_forbidden: true
+
+ProjectOverview:
+  name: "Daily Project 2 - Pelacakan Alumni"
+  repository_role: "design_and_dataset"
+  summary: "Repository berisi rancangan pelacakan alumni, dataset simulasi, dan artefak laporan."
+  source_of_truth_files:
+    - "deliverables/Laporan_Daily_Project_2.md"
+    - "deliverables/01_pseudocode_pelacakan_alumni.md"
+    - "deliverables/02_usecase_diagram.puml"
+    - "data/*.csv"
+
+HowToRun:
+  runtime_status: "no_application_runtime"
+  commands:
+    - name: "Backup database scheme snapshot"
+      command: "npm run backupdb:scheme"
+      notes: "Membaca skema kolom dari CSV di folder data."
+  prerequisites:
+    - "node/npm untuk menjalankan script npm"
+    - "python3 tersedia di environment"
+
+ArchitectureMap:
+  current_style: "documentation_driven_pipeline"
+  layers:
+    - name: "Input Layer"
+      artifact: "data/alumni_tracking_sample_umm.csv"
+    - name: "Query Layer"
+      artifact: "data/search_queries_sample.csv"
+    - name: "Evidence Layer"
+      artifact: "data/candidate_evidence_sample.csv"
+    - name: "Disambiguation Layer"
+      artifact: "data/disambiguation_sample.csv"
+    - name: "Result Layer"
+      artifact: "data/tracking_result_sample.csv"
+  decision_log:
+    - id: "A1"
+      decision: "Maintain CSV-based pipeline for analysis stage."
+      rationale: "Simple inspection and auditability for coursework deliverable."
+      deprecated: false
+
+Workflow:
+  scheduler: "designed_weekly_not_implemented"
+  steps:
+    - "select eligible alumni"
+    - "build target profile"
+    - "generate search queries"
+    - "collect candidates from public sources"
+    - "extract identity signals"
+    - "score disambiguation"
+    - "cross-validate across sources"
+    - "set final tracking status"
+    - "store evidence trail"
+  status: "design_complete_runtime_pending"
+
+EndpointsMap:
+  implemented: false
+  endpoints: []
+  notes:
+    - "No HTTP API currently present in repository."
+
+DatabaseMap:
+  engine: "csv_artifact_store"
+  physical_db: "none"
+  tables:
+    - "alumni_tracking_sample_umm"
+    - "search_queries_sample"
+    - "candidate_evidence_sample"
+    - "disambiguation_sample"
+    - "tracking_result_sample"
+  schema_dictionary: "data/data_dictionary_alumni_tracking_sample.md"
+  migrations: []
+  change_history:
+    - version: 1
+      note: "Initial map from generated CSV assets."
+      deprecated: false
+
+UISystem:
+  implemented: false
+  artifacts:
+    - "deliverables/02_usecase_diagram.puml"
+  notes:
+    - "No frontend code or component library detected."
+
+Invariants:
+  - id: "INV-ARCH-001"
+    rule: "ArchitectureMap must remain present and additive."
+    status: "active"
+  - id: "INV-DB-001"
+    rule: "DatabaseMap must not be removed; only patched or extended."
+    status: "active"
+  - id: "INV-AUDIT-001"
+    rule: "Tracking workflow must preserve evidence traceability."
+    status: "active"
+
+CurrentState:
+  git_branch: "main"
+  implementation_level: "analysis_artifacts_only"
+  completed:
+    - "Pseudocode design"
+    - "Use case diagram"
+    - "Scoring rules"
+    - "Synthetic datasets"
+    - "Final report markdown"
+  pending:
+    - "Executable backend"
+    - "Real integration with allowed data sources"
+    - "Authentication/authorization"
+    - "Deployment pipeline"
+
+NextSteps:
+  - "Implement ingestion service for allowed public-source connectors."
+  - "Create scoring service and persistence layer (RDBMS)."
+  - "Expose internal API for admin review and manual verification."
+  - "Build monitoring and validation tests for tracking quality."
+
+KnownIssues:
+  - id: "KI-001"
+    issue: "No package-level runtime existed before this snapshot."
+    impact: "No standardized project command execution."
+    mitigation: "Added npm script for schema backup operation."
+  - id: "KI-002"
+    issue: "No real API endpoint implementation."
+    impact: "System cannot run tracking jobs in production."
+    mitigation: "Treat current repository as design baseline."
+
+Unknowns:
+  - "Final technology stack for production implementation."
+  - "Official availability and quota constraints of each external source."
+  - "Data governance policy for handling real alumni PII."
+
+ChangeLog:
+  - entry: "CTX-001"
+    timestamp: "2026-03-12T00:00:00Z"
+    merge_type: "additive"
+    summary: "Created initial structural snapshot with required sections."
+    deprecated: false
+  - entry: "CTX-002"
+    timestamp: "2026-03-12T04:59:35Z"
+    merge_type: "structural"
+    summary: "Patched snapshot metadata and recorded successful schema backup execution."
+    deprecated: false
+
+Backup:
+  last_run:
+    status: "success"
+    file: "schema_backup_20260312_045927.json"
+    path: "backups/schema/schema_backup_20260312_045927.json"
+    timestamp: "2026-03-12T04:59:35Z"

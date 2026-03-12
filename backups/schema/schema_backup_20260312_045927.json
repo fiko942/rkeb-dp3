@@ -1,0 +1,344 @@
+{
+  "generated_at_utc": "2026-03-12T04:59:27.151328+00:00",
+  "source": "csv-schema-snapshot",
+  "tables": [
+    {
+      "table_name": "alumni_tracking_sample_umm",
+      "file": "data/alumni_tracking_sample_umm.csv",
+      "columns": [
+        {
+          "name": "alumni_id",
+          "inferred_type": "string"
+        },
+        {
+          "name": "nim",
+          "inferred_type": "integer"
+        },
+        {
+          "name": "nama_lengkap",
+          "inferred_type": "string"
+        },
+        {
+          "name": "nama_variasi",
+          "inferred_type": "string"
+        },
+        {
+          "name": "jenis_kelamin",
+          "inferred_type": "string"
+        },
+        {
+          "name": "tanggal_lahir",
+          "inferred_type": "date"
+        },
+        {
+          "name": "kota_asal",
+          "inferred_type": "string"
+        },
+        {
+          "name": "fakultas",
+          "inferred_type": "string"
+        },
+        {
+          "name": "prodi",
+          "inferred_type": "string"
+        },
+        {
+          "name": "angkatan",
+          "inferred_type": "integer"
+        },
+        {
+          "name": "tahun_lulus",
+          "inferred_type": "integer"
+        },
+        {
+          "name": "ipk",
+          "inferred_type": "number"
+        },
+        {
+          "name": "predikat",
+          "inferred_type": "string"
+        },
+        {
+          "name": "email",
+          "inferred_type": "string"
+        },
+        {
+          "name": "no_hp",
+          "inferred_type": "integer"
+        },
+        {
+          "name": "kata_kunci_afiliasi",
+          "inferred_type": "string"
+        },
+        {
+          "name": "kata_kunci_konteks",
+          "inferred_type": "string"
+        },
+        {
+          "name": "target_role",
+          "inferred_type": "string"
+        },
+        {
+          "name": "instansi_terakhir",
+          "inferred_type": "string"
+        },
+        {
+          "name": "lokasi_terakhir",
+          "inferred_type": "string"
+        },
+        {
+          "name": "status_pelacakan",
+          "inferred_type": "string"
+        },
+        {
+          "name": "confidence_score",
+          "inferred_type": "number"
+        },
+        {
+          "name": "sumber_terakhir",
+          "inferred_type": "string"
+        },
+        {
+          "name": "tanggal_update",
+          "inferred_type": "date"
+        }
+      ]
+    },
+    {
+      "table_name": "candidate_evidence_sample",
+      "file": "data/candidate_evidence_sample.csv",
+      "columns": [
+        {
+          "name": "evidence_id",
+          "inferred_type": "string"
+        },
+        {
+          "name": "alumni_id",
+          "inferred_type": "string"
+        },
+        {
+          "name": "candidate_id",
+          "inferred_type": "string"
+        },
+        {
+          "name": "source_name",
+          "inferred_type": "string"
+        },
+        {
+          "name": "source_url",
+          "inferred_type": "string"
+        },
+        {
+          "name": "title",
+          "inferred_type": "string"
+        },
+        {
+          "name": "snippet",
+          "inferred_type": "string"
+        },
+        {
+          "name": "signal_name",
+          "inferred_type": "string"
+        },
+        {
+          "name": "signal_affiliation",
+          "inferred_type": "string"
+        },
+        {
+          "name": "signal_role",
+          "inferred_type": "string"
+        },
+        {
+          "name": "signal_location",
+          "inferred_type": "string"
+        },
+        {
+          "name": "signal_topic",
+          "inferred_type": "string"
+        },
+        {
+          "name": "signal_activity_year",
+          "inferred_type": "integer"
+        },
+        {
+          "name": "captured_at",
+          "inferred_type": "date"
+        }
+      ]
+    },
+    {
+      "table_name": "disambiguation_sample",
+      "file": "data/disambiguation_sample.csv",
+      "columns": [
+        {
+          "name": "disambiguation_id",
+          "inferred_type": "string"
+        },
+        {
+          "name": "alumni_id",
+          "inferred_type": "string"
+        },
+        {
+          "name": "candidate_id",
+          "inferred_type": "string"
+        },
+        {
+          "name": "name_score",
+          "inferred_type": "number"
+        },
+        {
+          "name": "affiliation_score",
+          "inferred_type": "number"
+        },
+        {
+          "name": "timeline_score",
+          "inferred_type": "number"
+        },
+        {
+          "name": "field_score",
+          "inferred_type": "number"
+        },
+        {
+          "name": "cross_validation_bonus",
+          "inferred_type": "number"
+        },
+        {
+          "name": "final_score",
+          "inferred_type": "number"
+        },
+        {
+          "name": "confidence_level",
+          "inferred_type": "string"
+        },
+        {
+          "name": "decision_label",
+          "inferred_type": "string"
+        },
+        {
+          "name": "review_flag",
+          "inferred_type": "string"
+        },
+        {
+          "name": "evaluated_at",
+          "inferred_type": "date"
+        }
+      ]
+    },
+    {
+      "table_name": "search_queries_sample",
+      "file": "data/search_queries_sample.csv",
+      "columns": [
+        {
+          "name": "query_id",
+          "inferred_type": "string"
+        },
+        {
+          "name": "alumni_id",
+          "inferred_type": "string"
+        },
+        {
+          "name": "nim",
+          "inferred_type": "integer"
+        },
+        {
+          "name": "prodi",
+          "inferred_type": "string"
+        },
+        {
+          "name": "angkatan",
+          "inferred_type": "integer"
+        },
+        {
+          "name": "platform_target",
+          "inferred_type": "string"
+        },
+        {
+          "name": "query_text",
+          "inferred_type": "string"
+        },
+        {
+          "name": "query_type",
+          "inferred_type": "string"
+        },
+        {
+          "name": "created_at",
+          "inferred_type": "date"
+        },
+        {
+          "name": "scheduler_batch_id",
+          "inferred_type": "string"
+        }
+      ]
+    },
+    {
+      "table_name": "tracking_result_sample",
+      "file": "data/tracking_result_sample.csv",
+      "columns": [
+        {
+          "name": "result_id",
+          "inferred_type": "string"
+        },
+        {
+          "name": "alumni_id",
+          "inferred_type": "string"
+        },
+        {
+          "name": "nim",
+          "inferred_type": "integer"
+        },
+        {
+          "name": "nama_lengkap",
+          "inferred_type": "string"
+        },
+        {
+          "name": "prodi",
+          "inferred_type": "string"
+        },
+        {
+          "name": "angkatan",
+          "inferred_type": "integer"
+        },
+        {
+          "name": "tracking_status",
+          "inferred_type": "string"
+        },
+        {
+          "name": "final_confidence",
+          "inferred_type": "number"
+        },
+        {
+          "name": "matched_candidate_id",
+          "inferred_type": "string"
+        },
+        {
+          "name": "top_source",
+          "inferred_type": "string"
+        },
+        {
+          "name": "current_role_summary",
+          "inferred_type": "string"
+        },
+        {
+          "name": "current_org_summary",
+          "inferred_type": "string"
+        },
+        {
+          "name": "current_location_summary",
+          "inferred_type": "string"
+        },
+        {
+          "name": "evidence_count",
+          "inferred_type": "integer"
+        },
+        {
+          "name": "last_verified_at",
+          "inferred_type": "date"
+        },
+        {
+          "name": "notes",
+          "inferred_type": "string"
+        }
+      ]
+    }
+  ]
+}

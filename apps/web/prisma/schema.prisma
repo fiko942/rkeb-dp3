@@ -1,0 +1,127 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Alumni {
+  id                 String             @id
+  nim                String
+  namaLengkap        String
+  namaVariasi        String
+  jenisKelamin       String
+  tanggalLahir       DateTime?
+  kotaAsal           String
+  fakultas           String
+  prodi              String
+  angkatan           Int
+  tahunLulus         Int
+  ipk                Float
+  predikat           String
+  email              String
+  noHp               String
+  kataKunciAfiliasi  String
+  kataKunciKonteks   String
+  targetRole         String
+  instansiTerakhir   String
+  lokasiTerakhir     String
+  statusPelacakan    String
+  confidenceScore    Float
+  sumberTerakhir     String
+  tanggalUpdate      DateTime?
+  searchQueries      SearchQuery[]
+  candidateEvidences CandidateEvidence[]
+  disambiguations    Disambiguation[]
+  trackingResults    TrackingResult[]
+
+  @@index([nim])
+  @@index([statusPelacakan])
+  @@index([prodi])
+}
+
+model SearchQuery {
+  id              String   @id
+  alumniId        String
+  nim             String
+  prodi           String
+  angkatan        Int
+  platformTarget  String
+  queryText       String
+  queryType       String
+  createdAt       DateTime
+  schedulerBatchId String
+  alumni          Alumni   @relation(fields: [alumniId], references: [id], onDelete: Cascade)
+
+  @@index([alumniId])
+  @@index([createdAt])
+}
+
+model CandidateEvidence {
+  id                 String   @id
+  alumniId           String
+  candidateId        String   @unique
+  sourceName         String
+  sourceUrl          String
+  title              String
+  snippet            String
+  signalName         String
+  signalAffiliation  String
+  signalRole         String
+  signalLocation     String
+  signalTopic        String
+  signalActivityYear Int
+  capturedAt         DateTime
+  alumni             Alumni   @relation(fields: [alumniId], references: [id], onDelete: Cascade)
+  disambiguation     Disambiguation?
+
+  @@index([alumniId])
+  @@index([candidateId])
+}
+
+model Disambiguation {
+  id                  String            @id
+  alumniId            String
+  candidateId         String            @unique
+  nameScore           Float
+  affiliationScore    Float
+  timelineScore       Float
+  fieldScore          Float
+  crossValidationBonus Float
+  finalScore          Float
+  confidenceLevel     String
+  decisionLabel       String
+  reviewFlag          Boolean
+  evaluatedAt         DateTime
+  alumni              Alumni            @relation(fields: [alumniId], references: [id], onDelete: Cascade)
+  candidate           CandidateEvidence @relation(fields: [candidateId], references: [candidateId], onDelete: Cascade)
+
+  @@index([alumniId])
+  @@index([finalScore])
+}
+
+model TrackingResult {
+  id                     String        @id
+  alumniId               String
+  nim                    String
+  namaLengkap            String
+  prodi                  String
+  angkatan               Int
+  trackingStatus         String
+  finalConfidence        Float
+  matchedCandidateId     String?
+  topSource              String
+  currentRoleSummary     String
+  currentOrgSummary      String
+  currentLocationSummary String
+  evidenceCount          Int
+  lastVerifiedAt         DateTime?
+  notes                  String
+  isManuallyVerified     Boolean       @default(false)
+  alumni                 Alumni        @relation(fields: [alumniId], references: [id], onDelete: Cascade)
+
+  @@index([alumniId])
+  @@index([trackingStatus])
+}
