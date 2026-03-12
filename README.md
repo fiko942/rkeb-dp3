@@ -9,7 +9,7 @@ Implementasi web dari desain Daily Project 2 menggunakan Next.js, Tailwind, Radi
 
 ## Submission Links
 - Source Code (GitHub): `https://github.com/fiko942/rkeb-dp3.git`
-- Published Web: `TODO_ADD_VPS_URL`
+- Published Web: `https://rkeb-dp3.streampeg.com`
 
 ## Tech Stack
 - Next.js (App Router) + TypeScript
@@ -41,7 +41,7 @@ scripts                  # task automation and utility scripts
 - `GET /api/alumni/:id`
 - `POST /api/tracking/run`
 - `GET /api/tracking/results`
-- `GET /api/tracking/results/:alumniId`
+- `GET /api/tracking/results/:id`
 - `PATCH /api/tracking/results/:id/verify`
 
 ## Quick Start
