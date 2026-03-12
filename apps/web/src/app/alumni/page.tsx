@@ -5,25 +5,42 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TBody, TD, TH, THead, TR } from '@/components/ui/table';
 import { prisma } from '@/lib/prisma';
 
+const STATUS_OPTIONS = [
+  { value: '', label: 'Semua Status' },
+  { value: 'BELUM_DILACAK', label: 'Belum Dilacak' },
+  { value: 'PERLU_VERIFIKASI_MANUAL', label: 'Perlu Verifikasi Manual' },
+  { value: 'TERIDENTIFIKASI', label: 'Teridentifikasi' },
+  { value: 'BELUM_DITEMUKAN', label: 'Belum Ditemukan' }
+] as const;
+
 export default async function AlumniPage({
   searchParams
 }: {
   searchParams: Promise<{ q?: string; prodi?: string; status?: string }>;
 }) {
   const params = await searchParams;
+  const q = params.q?.trim();
+  const prodi = params.prodi?.trim();
+  const status = params.status?.trim();
+
+  const prodiOptions = await prisma.alumni.findMany({
+    select: { prodi: true },
+    distinct: ['prodi'],
+    orderBy: { prodi: 'asc' }
+  });
 
   const alumni = await prisma.alumni.findMany({
     where: {
-      ...(params.q
+      ...(q
         ? {
             OR: [
-              { namaLengkap: { contains: params.q } },
-              { nim: { contains: params.q } }
+              { namaLengkap: { contains: q } },
+              { nim: { contains: q } }
             ]
           }
         : {}),
-      ...(params.prodi ? { prodi: params.prodi } : {}),
-      ...(params.status ? { statusPelacakan: params.status } : {})
+      ...(prodi ? { prodi } : {}),
+      ...(status ? { statusPelacakan: status } : {})
     },
     take: 200,
     orderBy: [{ angkatan: 'desc' }, { namaLengkap: 'asc' }]
@@ -38,10 +55,38 @@ export default async function AlumniPage({
         </CardHeader>
         <CardContent>
           <form className="grid gap-3 md:grid-cols-4">
-            <input name="q" placeholder="Cari nama / NIM" defaultValue={params.q} className="rounded-md border border-emerald-200 bg-white px-3 py-2 text-sm" />
-            <input name="prodi" placeholder="Filter prodi" defaultValue={params.prodi} className="rounded-md border border-emerald-200 bg-white px-3 py-2 text-sm" />
-            <input name="status" placeholder="Filter status" defaultValue={params.status} className="rounded-md border border-emerald-200 bg-white px-3 py-2 text-sm" />
-            <button className="rounded-md bg-excel-primary px-3 py-2 text-sm font-medium text-white">Apply Filters</button>
+            <input
+              name="q"
+              placeholder="Cari nama / NIM"
+              defaultValue={q}
+              className="rounded-md border border-emerald-200 bg-white px-3 py-2 text-sm"
+            />
+            <select
+              name="prodi"
+              defaultValue={prodi ?? ''}
+              className="rounded-md border border-emerald-200 bg-white px-3 py-2 text-sm"
+            >
+              <option value="">Semua Prodi</option>
+              {prodiOptions.map((option) => (
+                <option key={option.prodi} value={option.prodi}>
+                  {option.prodi}
+                </option>
+              ))}
+            </select>
+            <select
+              name="status"
+              defaultValue={status ?? ''}
+              className="rounded-md border border-emerald-200 bg-white px-3 py-2 text-sm"
+            >
+              {STATUS_OPTIONS.map((option) => (
+                <option key={option.value || 'all'} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            <button className="rounded-md bg-excel-primary px-3 py-2 text-sm font-medium text-white">
+              Apply Filters
+            </button>
           </form>
         </CardContent>
       </Card>
